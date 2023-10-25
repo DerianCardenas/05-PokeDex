@@ -1,6 +1,6 @@
 <script setup>
   import { onMounted, ref, watch } from 'vue';
-  import router from '@/router'
+  import router from 'vue-router'
   import Menu from './Menu.vue';
   import axios from 'axios'
   const showMenu = ref(false);
