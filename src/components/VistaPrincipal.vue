@@ -22,7 +22,7 @@
     setTimeout(() => {
       container.style.display = "none"
       pokedex.style.display = "flex"
-    }, 700);
+    }, 600);
     center.style.display = "none"
     left.classList.add("salida-izquierda")
     right.classList.add("salida-derecha")
@@ -43,7 +43,8 @@
 </script>
 <template>
     <Menu :show="showMenu"/>
-    <div class="container">
+    <div class="view-container">
+      <div class="container">
         <div class="left-content">
 
         </div>
@@ -57,115 +58,20 @@
         <div class="right-content">
 
         </div>
-    </div>
-    <div class="pokedex-content">
-        <button @click="showMenu = !showMenu" class="btn-menu">MENU</button>
-        <div class="pokemon-list">
-            <div @click="showPokemonData(index)" class="pokemon-item" v-for="(pokemon, index) in pokemonsList" :key="index">
-                <img class="sprite" :src="pokemon.sprites.front_default"/> 
-                <p>{{pokemon.name}}</p>
-            </div>
-        </div>
+      </div>
+      <div class="pokedex-content">
+          <button @click="showMenu = !showMenu" class="btn-menu">MENU</button>
+          <div class="pokemon-list">
+              <div @click="showPokemonData(index)" class="pokemon-item" v-for="(pokemon, index) in pokemonsList" :key="index">
+                  <img class="sprite" :src="pokemon.sprites.front_default"/> 
+                  <p>{{pokemon.name}}</p>
+              </div>
+          </div>
+      </div>
     </div>
   
 </template>
 
 <style scoped>
-.container{
-  display:flex;
-  height:100vh;
-  overflow:hidden;
-  width:100%;
-}
-.left-content, .right-content{
-  width:48%;
-}
-.left-content{
-  background-color:red;
-}
-.center-content{
-  background-color:black;
-  width:6%;
-}
-.center-circle{
-  background-color:white;
-  border:10px solid black;
-  border-radius:50%;
-  margin-top:37vh;
-  left: -50%;
-  position:relative;
-  width:200%;
-  height:26vh;
-}
-.center-circle-2{
-  background-color:white;
-  border:5px solid #E5E5E5;
-  border-radius:50%;
-  height:16.5vh;
-  left: 13%;
-  margin-top:15%;
-  position:relative;
-  transition: all .7s ease-in-out;
-  width:16.5vh;
-}
-.center-circle-2:hover{
-  background-color:#E5E5E5;
-  border:5px solid black;
-  cursor:pointer;
-}
-.salida-izquierda{
-  transition: all .7s ease-in-out;
-  transform: translateX(-100%);
-}
-
-.salida-derecha{
-  transition: all .7s ease-in-out;
-  transform: translateX(-100%);
-}
-.btn-menu{
-    background-color: green;
-    border-radius: 50%;
-    color:white;
-    height: 4em;
-    margin: 1em;
-    position: absolute;
-}
-.btn-menu:hover{
-    cursor:pointer
-}
-.pokedex-content{
-  background-color:#309AF1;
-  display:none;
-  height:100vh;
-  overflow:hidden;
-  width:100%;
-}
-.pokemon-list{
-  display:grid;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2% auto;
-  width:90%; 
-}
-.pokemon-item{
-  background-color:transparent;
-  border: 5px dotted white;
-  border-radius: 1em;
-  margin: .5% 1.6%;
-  transition: all .7s ease-in-out;
-  width:13%;
-}
-.pokemon-item:hover{
-  background-color:#4949F9;
-  cursor:pointer;
-}
-.sprite{
-  display: flex;
-  margin: 0 auto;
-  width:70%;
-}
-p{
-  color: white;
-  text-align: center;
-}
+@import url('../styles/VistaPrincipal.css');
 </style>
