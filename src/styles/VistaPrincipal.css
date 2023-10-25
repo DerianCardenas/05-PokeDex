@@ -75,12 +75,25 @@
     overflow:hidden;
     width:100%;
   }
+  .search-bar{
+    margin: 1em;
+    width: 100%;
+    .input-search{
+        border-radius: 1em;
+        display: flex;
+        margin: 0 auto;
+        padding: 1em;
+        width: 50%;
+    }
+  }
+  
   .pokemon-list{
     display:grid;
     display: flex;
     flex-wrap: wrap;
     margin: 2% auto;
     width:90%; 
+    overflow-y: hidden; 
   }
   .pokemon-item{
     background-color:transparent;
@@ -103,3 +116,25 @@
     color: white;
     text-align: center;
   }
+  .content-pagination{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .paginator{
+    background-color: white;
+    border-radius: 1em;
+    border-color: #4949F9;
+    color:#4949F9;
+    height: 6vh;
+    transition: .5s all ease-in-out;
+    width: 20%;
+  }
+  .paginator:hover{
+    background-color: #4949F9;
+    border-color: white;
+    color:white;
+    cursor: pointer;
+  }
+  
