@@ -1,5 +1,5 @@
 .view-container{
-    background-color:#309AF1;
+    background-color:#333;
     display:flex;
 }
 .container{
@@ -12,7 +12,7 @@
     width:48%;
   }
   .left-content{
-    background-color:red;
+    background-color:#ad0600;
   }
   .right-content{
     background-color: white;
@@ -51,25 +51,34 @@
     transition: all .7s ease-in-out;
     transform: translateX(-100%);
   }
-  
+  .salida-centro{
+    transition: all .7s ease-in-out;
+    transform: translateX(750%);
+  }
   .salida-derecha{
     transition: all .7s ease-in-out;
     transform: translateX(100%);
   }
   .btn-menu{
-      background-color: green;
+      background-color: white;
       border-radius: 50%;
-      color:white;
-      height: 4em;
+      border: 0px;
+      color:#333;
+      font-size: 1.2em;
+      font-weight: bold;
       margin: 1em;
+      padding: .5em;
       position: absolute;
+      transition: all .5s ease-in-out;
   }
   .btn-menu:hover{
-      cursor:pointer
+      background-color: #333;
+      color:white;
+      cursor:pointer;
   }
 
   .pokedex-content{
-    background-color:#309AF1;
+    background-color:#ad0600;
     display:none;
     height:100vh;
     overflow:hidden;
@@ -96,15 +105,17 @@
     overflow-y: hidden; 
   }
   .pokemon-item{
-    background-color:transparent;
-    border: 5px dotted white;
+    background-color:white;
     border-radius: 1em;
-    margin: .5% 1.6%;
+    color: #333;
+    margin: .5% auto;
     transition: all .7s ease-in-out;
-    width:13%;
+    text-align: center;
+    width:15%;
   }
   .pokemon-item:hover{
-    background-color:#4949F9;
+    background-color:#333;
+    color: white;
     cursor:pointer;
   }
   .sprite{
@@ -123,18 +134,18 @@
     width: 90%;
   }
   .paginator{
-    background-color: white;
+    background-color: #ad0600;
     border-radius: 1em;
-    border-color: #4949F9;
-    color:#4949F9;
+    border-color: white;
+    color:white;
     height: 6vh;
     transition: .5s all ease-in-out;
     width: 20%;
   }
   .paginator:hover{
-    background-color: #4949F9;
-    border-color: white;
-    color:white;
+    background-color: white;
+    border-color: #ad0600;
+    color:#ad0600;
     cursor: pointer;
   }
   

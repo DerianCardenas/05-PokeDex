@@ -23,13 +23,13 @@
     var right = document.getElementsByClassName("right-content")[0]
     var container = document.getElementsByClassName("container")[0]
     var pokedex = document.getElementsByClassName("pokedex-content")[0]
+    left.classList.add("salida-izquierda")
+    right.classList.add("salida-derecha")
+    center.classList.add("salida-centro")
     setTimeout(() => {
       container.style.display = "none"
       pokedex.style.display = "block"
-    }, 600);
-    center.style.display = "none"
-    left.classList.add("salida-izquierda")
-    right.classList.add("salida-derecha")
+    }, 700);
     getFirstPokemon();
   }
   const getFirstPokemon = async () => {
@@ -37,6 +37,7 @@
     const pokemonsToFetch = allPokemons.value.slice(offset.value, offset.value + limit.value)
     pokemonsToFetch.map( async pokemon => {
       await axios.get(pokemon.url).then(response => pokemonsList.value.push(response.data))
+      ordenarArreglo();
     })
     ordenarArreglo();
   }
@@ -48,6 +49,7 @@
     const pokemonsToFetch = allPokemons.value.slice(offset.value, offset.value + limit.value)
     pokemonsToFetch.map( async pokemon => {
       await axios.get(pokemon.url).then(response => pokemonsList.value.push(response.data))
+      ordenarArreglo();
     })
     ordenarArreglo();
   }
@@ -57,6 +59,7 @@
     const pokemonsToFetch = allPokemons.value.slice(offset.value, offset.value + limit.value)
     pokemonsToFetch.map( async pokemon => {
       await axios.get(pokemon.url).then(response => pokemonsList.value.push(response.data))
+      ordenarArreglo();
     })
     ordenarArreglo();
   }
@@ -65,12 +68,12 @@
   }
   const searchPokemon = () => {
     if(pokemon.value != ""){
+      console.log(pokemon.value);
       const results  = allPokemons.value.filter(item => 
         item.name.toLowerCase().includes(pokemon.value.toLowerCase()))
-      console.log(results);
       if(results.length == 1){
         var id = results[0].url.split("/")[6]
-        router.push(`/pokemon/${results[0].id}`)
+        router.push(`/pokemon/${id}`)
       }else{
         pokemonsList.value = []
         results.map( async pokemon => {
@@ -110,14 +113,14 @@
         </div>
       </div>
       <div class="pokedex-content">
-          <button @click="showMenu = !showMenu" class="btn-menu">MENU</button>
+          <button @click="showMenu = !showMenu" class="btn-menu">☰</button>
           <div class="search-bar"> 
-            <input type="search" v-model="pokemon" placeholder="Buscar un pokemon" @blur="searchPokemon" name="" id="" class="input-search">
+            <input type="search" v-model="pokemon" placeholder="Buscar un pokemon" @keyup.enter="searchPokemon" @blur="searchPokemon" name="" id="" class="input-search">
           </div>
           <div class="pokemon-list">
               <div @click="showPokemonData(index)" class="pokemon-item" v-for="(pokemon, index) in pokemonsList" :key="index">
                   <img class="sprite" :src="pokemon.sprites.front_default"/> 
-                  <p>{{pokemon.name}}</p>
+                  {{pokemon.name}}
               </div>
           </div>
           <div class="content-pagination">
