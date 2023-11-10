@@ -101,13 +101,9 @@ getPokemonInfo()
 <template>
     <div class="pokedex">
         <div class="pokedex-sprite">
+            <br>
             <span class="volver" @click="volver">VOLVER</span> 
             <img class="sprite" :src="imgSelected"/>
-            <div class="icons">
-                <span @click="changeImg(1)" class="icon"></span>
-                <span @click="changeImg(2)" class="icon"></span>
-                <span @click="changeImg(3)" class="icon"></span>
-            </div>
             <div class="nombre">{{pokemonData.id.toString().padStart(3,0)}} -- {{pokemonData.name.toUpperCase()}} </div>
             <div class="tipos">
                 <div class="tipo" v-for="type in pokemonData.types" :key="type">
@@ -154,10 +150,16 @@ getPokemonInfo()
 </template>
 <style scoped>
 .volver{
-    padding: 1em;
+    background-color: #333;
+    border-radius: .75em;
     color:white;
+    margin: 0 1em;
+    padding: 1em;
+    transition: all ease-in-out .5s;
 }
 .volver:hover{
+    background-color: white;
+    color: #333;
     cursor: pointer;
 }
 .pokedex{
